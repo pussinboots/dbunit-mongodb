@@ -1,0 +1,15 @@
+{
+    "dbunit":[
+        {
+            "_id":1,
+            "column1":"dbunit mongo test"
+        },
+        {
+            "_id":2,
+            "column1":"dbunit"
+        },
+        {
+            "_id":3
+        }
+    ]
+}
