@@ -1,5 +1,7 @@
 package org.adclear.dbunit.json;
 
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.lang.annotation.ElementType;
@@ -28,9 +30,9 @@ import com.mongodb.MongoURI;
 
 /**
  * The {@link MethodRule} implementation for the dbunit mongodb specific rule.
- * 
+ *
  * @author fit
- * 
+ *
  */
 public class DbUnitRuleMongo implements MethodRule {
 
@@ -88,6 +90,11 @@ public class DbUnitRuleMongo implements MethodRule {
 
 						InputStream resourceAsStream = resourceBase
 								.getResourceAsStream(dataSetFileName);
+
+						if(resourceAsStream == null && !dataSetFileName.contains("/")){
+							File file = new File("src/test/resources/" +dataSetFileName);
+							resourceAsStream = new FileInputStream(file);
+						}
 
 						if (resourceAsStream != null) {
 							IDataSet ds = new JSONDataSet(resourceAsStream,
