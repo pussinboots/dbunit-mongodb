@@ -1,0 +1,4 @@
+language: java
+
+before_script:
+ - cd adlib_dbunit_mongo
