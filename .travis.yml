@@ -4,7 +4,7 @@ before_script:
  - cd adlib_dbunit_mongo
 
 after_failure:
-- wget -O - https://unitcover.herokuapp.com/scripts/upload.sh | bash /dev/stdin pussinboots dbunit-mongodb "."
+- wget -O - https://unitcover.herokuapp.com/scripts/upload.sh | bash /dev/stdin pussinboots dbunit-mongodb "target/surefire-reports"
 
 after_success:
-- wget -O - https://unitcover.herokuapp.com/scripts/upload.sh | bash /dev/stdin pussinboots dbunit-mongodb "."
+- wget -O - https://unitcover.herokuapp.com/scripts/upload.sh | bash /dev/stdin pussinboots dbunit-mongodb "target/surefire-reports"
